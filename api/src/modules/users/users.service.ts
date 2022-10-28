@@ -13,12 +13,8 @@ export class UsersService {
     private readonly usersRepository: Repository<Users>,
   ) {}
 
-  create(createUserDto: CreateUserDto): Promise<Users> {
-    const user = new Users();
-    user.firstName = createUserDto.firstName;
-    user.lastName = createUserDto.lastName;
-
-    return this.usersRepository.save(user);
+  create(createUserDto: Users): Promise<Users> {
+    return this.usersRepository.save(createUserDto);
   }
 
   async findAll(params: IGetFilter<CreateUserDto>): Promise<IGetResult<Users>> {

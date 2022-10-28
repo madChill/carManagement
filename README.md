@@ -18,13 +18,14 @@ $ npm run test
 
 ## Running the app using docker-compose 
 ```bash
+$ docker-compose build 
 $ docker-compose up 
 or
 docker-compose up -d
 ```
 
 after we can access dashboard on link: http://localhost:8000
-and api: http://localhost:3000/scans
+and api: http://localhost:3000/
 
 ## Running the app testing
 * for api backend 

@@ -1,29 +1,29 @@
 version: "3.3"
 services:
-  # app:
-  #   build:
-  #     context: api
-  #     dockerfile: Dockerfile
-  #   image: ${APP_NAME}
-  #   container_name: ${APP_NAME}
-  #   restart: always
-  #   environment:
-  #     - NODE_ENV=${ENV_NAME}
-  #     - SET_CONTAINER_TIMEZONE=true
-  #     - CONTAINER_TIMEZONE=UTC
-  #     - TZ=UTC
-  #     - ENV_NAME=${ENV_NAME}
-  #     - DB_WRITE_HOST=${POSTGRES_NAME}
-  #     - DB_READ_HOST=${POSTGRES_NAME}
-  #     - APP_PORT=${APP_PORT}
-  #     - DB_HOST=${DB_HOST}
-  #   ports:
-  #     - ${APP_EXPOSE_PORT}:${APP_PORT}
-  #   depends_on:
-  #     - 'postgres'
-  #   links:
-  #     - 'postgres'
-  #   command: npm run start:prod
+  app:
+    build:
+      context: api
+      dockerfile: Dockerfile
+    image: ${APP_NAME}
+    container_name: ${APP_NAME}
+    restart: always
+    environment:
+      - NODE_ENV=${ENV_NAME}
+      - SET_CONTAINER_TIMEZONE=true
+      - CONTAINER_TIMEZONE=UTC
+      - TZ=UTC
+      - ENV_NAME=${ENV_NAME}
+      - DB_WRITE_HOST=${POSTGRES_NAME}
+      - DB_READ_HOST=${POSTGRES_NAME}
+      - APP_PORT=${APP_PORT}
+      - DB_HOST=${DB_HOST}
+    ports:
+      - ${APP_EXPOSE_PORT}:${APP_PORT}
+    depends_on:
+      - 'postgres'
+    links:
+      - 'postgres'
+    command: npm run start:prod
   postgres:
     image: postgres
     container_name: ${POSTGRES_NAME}
@@ -39,15 +39,15 @@ services:
       - ./postgres_vol:/var/lib/postgresql/data
       - ./backup:/backups
     restart: always
-  # dashboard:
-  #   # service 1 container name
-  #   container_name: dashboard
-  #   build:
-  #     context: dashboard
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "8000:8000"
-  #   # set the environment to development
-  #   environment:
-  #     - NODE_ENV=development
-  #     - PORT=8000
+  dashboard:
+    # service 1 container name
+    container_name: dashboard
+    build:
+      context: dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    # set the environment to development
+    environment:
+      - NODE_ENV=development
+      - PORT=8000
