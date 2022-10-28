@@ -1,0 +1,14 @@
+.layoutSideBar{
+    height: 1000px !important;
+    width: 150px;
+}
+.header{
+    position: absolute !important;
+}
+.headerLayout{
+    margin: 8px auto 16px;
+    display: flex;
+}
+.headerLayoutRight{
+    margin-left: 16px;
+}
